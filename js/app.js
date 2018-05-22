@@ -55,6 +55,7 @@ Player.prototype.update = function (dt) {
     }
 };
 
+//put player to initial place
 Player.prototype.reset = function () {
     this.x = 200;
     this.y = 400;
@@ -77,6 +78,7 @@ Player.prototype.handleInput = function (key) {
         if (this.y > 40) {
             this.y -= 90;
         } else {
+            //if reach water score plus 1 and reset to initial place.
             score += 1;
             document.getElementById("score").innerText = score;
             this.reset();
