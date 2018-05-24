@@ -1,16 +1,22 @@
+"use strict";
 var score = 0;
 var maxSpeed = 500;
 var minSpeed = 100;
 // Enemies our player must avoid
+
+var Person = function (x, y) {
+    this.x = x;
+    this.y = y;
+}
+
 var Enemy = function (x, y) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
+    Person.call(this, x, y);
     this.sprite = 'images/enemy-bug.png';
-    this.x = x;
-    this.y = y;
     this.speed = this.getSpeed();
 };
 
@@ -42,14 +48,13 @@ Enemy.prototype.render = function () {
 // This class requires an update(), render() and
 // a handleInput() method.
 var Player = function (x, y) {
+    Person.call(this, x, y)
     this.sprite = 'images/char-boy.png';
-    this.x = x;
-    this.y = y;
 };
 
 Player.prototype.update = function (dt) {
     for (var i = 0; i < allEnemies.length; i++) {
-        if ((this.y == allEnemies[i].y) && (this.x < allEnemies[i].x + 101) && (this.x + 101 > allEnemies[i].x)) {
+        if ((this.y == allEnemies[i].y) && (this.x < allEnemies[i].x + 50) && (this.x + 50 > allEnemies[i].x)) {
             this.reset();
         }
     }
