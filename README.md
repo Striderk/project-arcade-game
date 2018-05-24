@@ -1,4 +1,6 @@
 # Arcade game project
+Start the game by openning index.html and pressing arrow key to control the player.
+
 Objective:
 Avoid the bugs and reach the water.
 
